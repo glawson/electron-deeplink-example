@@ -1,0 +1,93 @@
+{
+    "name": "electron-deeplink-example",
+    "productName": "electron-deeplink-example",
+    "version": "1.0.0",
+    "description": "electron-deeplink-example app",
+    "main": ".webpack/main",
+    "scripts": {
+        "start": "electron-forge start",
+        "package": "electron-forge package",
+        "make": "electron-forge make",
+        "publish": "electron-forge publish",
+        "lint": "echo \"No linting configured\""
+    },
+    "keywords": [],
+    "author": {
+        "name": "Geoff Lawson",
+        "email": "jeffwithg@gmail.com"
+    },
+    "license": "MIT",
+    "config": {
+        "forge": {
+            "packagerConfig": {
+                "protocols": [
+                    {
+                        "protocol": "prod-app",
+                        "name": "prod-app",
+                        "schemes": "prod-app"
+                    }
+                ]
+            },
+            "makers": [
+                {
+                    "name": "@electron-forge/maker-squirrel",
+                    "config": {
+                        "name": "example"
+                    }
+                },
+                {
+                    "name": "@electron-forge/maker-zip",
+                    "platforms": [
+                        "darwin"
+                    ]
+                },
+                {
+                    "name": "@electron-forge/maker-deb",
+                    "config": {}
+                },
+                {
+                    "name": "@electron-forge/maker-rpm",
+                    "config": {}
+                }
+            ],
+            "plugins": [
+                [
+                    "@electron-forge/plugin-webpack",
+                    {
+                        "mainConfig": "./webpack.main.config.js",
+                        "renderer": {
+                            "config": "./webpack.renderer.config.js",
+                            "entryPoints": [
+                                {
+                                    "html": "./index.html",
+                                    "js": "./renderer.js",
+                                    "name": "main_window"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            ]
+        }
+    },
+    "devDependencies": {
+        "@electron-forge/cli": "^6.0.0-beta.52",
+        "@electron-forge/maker-deb": "^6.0.0-beta.52",
+        "@electron-forge/maker-dmg": "^6.0.0-beta.52",
+        "@electron-forge/maker-rpm": "^6.0.0-beta.52",
+        "@electron-forge/maker-squirrel": "^6.0.0-beta.52",
+        "@electron-forge/maker-zip": "^6.0.0-beta.52",
+        "@electron-forge/plugin-webpack": "^6.0.0-beta.52",
+        "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
+        "css-loader": "^3.6.0",
+        "electron": "9.1.2",
+        "node-loader": "^0.6.0",
+        "style-loader": "^0.23.1"
+    },
+    "dependencies": {
+        "electron-deeplink": "git+https://github.com/glawson/electron-deeplink.git",
+        "electron-is-dev": "^1.2.0",
+        "electron-log": "^4.2.3",
+        "electron-squirrel-startup": "^1.0.0"
+    }
+}
