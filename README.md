@@ -5,7 +5,9 @@ full running example for the [electon-deeplink](https://github.com/glawson/elect
 # installation
 
 ```
-npm install electron-deeplink
+git clone https://github.com/glawson/electron-deeplink-example.git
+cd electron-deeplink-example
+npm install
 ```
 
 # usage
