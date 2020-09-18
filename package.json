@@ -85,7 +85,7 @@
         "style-loader": "^0.23.1"
     },
     "dependencies": {
-        "electron-deeplink": "^1.0.2",
+        "electron-deeplink": "1.0.4",
         "electron-is-dev": "^1.2.0",
         "electron-log": "^4.2.3",
         "electron-squirrel-startup": "^1.0.0"
