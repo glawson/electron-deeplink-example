@@ -1,8 +1,10 @@
-const { app, BrowserWindow } = require('electron');
-const { Deeplink } = require('electron-deeplink');
-const isDev = require('electron-is-dev');
+import { app, BrowserWindow } from 'electron';
+import { Deeplink } from 'electron-deeplink';
+import * as isDev from 'electron-is-dev';
 
-let mainWindow;
+declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
+
+let mainWindow: BrowserWindow;
 const protocol = isDev ? 'dev-app' : 'prod-app';
 const deeplink = new Deeplink({ app, mainWindow, protocol, isDev, debugLogging: true });
 
@@ -44,3 +46,4 @@ app.on('activate', () => {
         createWindow();
     }
 });
+

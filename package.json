@@ -5,6 +5,7 @@
     "description": "electron-deeplink-example app",
     "main": ".webpack/main",
     "scripts": {
+        "build": "tsc",
         "start": "electron-forge start",
         "package": "electron-forge package",
         "make": "electron-forge make",
@@ -59,8 +60,8 @@
                             "config": "./webpack.renderer.config.js",
                             "entryPoints": [
                                 {
-                                    "html": "./index.html",
-                                    "js": "./renderer.js",
+                                    "html": "./src/index.html",
+                                    "js": "./src/renderer.ts",
                                     "name": "main_window"
                                 }
                             ]
@@ -79,13 +80,18 @@
         "@electron-forge/maker-zip": "^6.0.0-beta.52",
         "@electron-forge/plugin-webpack": "^6.0.0-beta.52",
         "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
+        "@types/electron": "^1.6.10",
+        "@vercel/webpack-asset-relocator-loader": "^1.6.0",
         "css-loader": "^3.6.0",
         "electron": "9.1.2",
+        "fork-ts-checker-webpack-plugin": "^6.3.1",
         "node-loader": "^0.6.0",
-        "style-loader": "^0.23.1"
+        "style-loader": "^0.23.1",
+        "ts-loader": "^8.3.0",
+        "typescript": "^4.3.5"
     },
     "dependencies": {
-        "electron-deeplink": "^1.0.6",
+        "electron-deeplink": "^1.0.7",
         "electron-is-dev": "^1.2.0",
         "electron-log": "^4.2.3",
         "electron-squirrel-startup": "^1.0.0"
